@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#004165">
+<meta name="description" content="Read Toastmasters project PDFs comfortably on your phone. Works offline; your files never leave your device.">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" type="image/png" href="icons/favicon.png">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="TM Viewer">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<title>TM Project Viewer</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="top" id="top"></header>
+<main id="view"></main>
+<div id="bar"></div>
+<div id="layer"></div>
+<div id="busy" class="busy" hidden><div class="busy-box"><div class="spin"></div><div id="busyTxt">Working…</div></div></div>
+<noscript><p style="padding:24px">TM Project Viewer needs JavaScript to run.</p></noscript>
+<script src="lib/pdf.min.js"></script>
+<script src="parser.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
