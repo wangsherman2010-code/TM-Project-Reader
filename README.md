@@ -73,4 +73,3 @@ python3 -m http.server 8000     # then open http://localhost:8000
 ## Licence
 
 MIT for this app (see `LICENSE`). PDF.js is Apache-2.0 (`lib/PDFJS-LICENSE.txt`).
-

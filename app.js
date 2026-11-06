@@ -431,6 +431,7 @@
   window.addEventListener('resize', autosize);
 
   /* ---------- start ---------- */
+  if (typeof pdfjsLib === 'undefined') { $('#view').innerHTML = '<div class="card"><h3>The PDF engine did not load</h3><p>Check your internet connection and reload. If it keeps happening, update Chrome and Android System WebView.</p></div>'; return; }
   pdfjsLib.GlobalWorkerOptions.workerSrc = 'lib/pdf.worker.min.js';
   applySettings();
   loadShelf().then(function () {

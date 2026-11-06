@@ -1,6 +1,6 @@
 /* TM Project Viewer service worker: caches the app so it opens offline.
  * Bump VERSION when you change any app file so phones pick up the update. */
-const VERSION = 'tmv-v1';
+const VERSION = 'tmv-v2';
 const ASSETS = [
   './', 'index.html', 'styles.css', 'app.js', 'parser.js', 'manifest.webmanifest',
   'lib/pdf.min.js', 'lib/pdf.worker.min.js',

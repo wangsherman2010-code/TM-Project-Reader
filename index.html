@@ -17,11 +17,20 @@
 </head>
 <body>
 <header class="top" id="top"></header>
-<main id="view"></main>
+<main id="view"><p id="boot" style="font-weight:600">Loading TM Project Viewer…</p></main>
 <div id="bar"></div>
 <div id="layer"></div>
 <div id="busy" class="busy" hidden><div class="busy-box"><div class="spin"></div><div id="busyTxt">Working…</div></div></div>
 <noscript><p style="padding:24px">TM Project Viewer needs JavaScript to run.</p></noscript>
+<script>
+window.addEventListener('error',function(e){
+  var t=e.target,m;
+  if(t&&t.src){m='Could not load '+t.src.split('/').slice(-2).join('/');}
+  else{m=(e.message||'Unknown error')+' ('+String(e.filename||'').split('/').pop()+':'+(e.lineno||'?')+')';}
+  var v=document.getElementById('view');
+  if(v){v.innerHTML='<div style="padding:16px;border:2px solid #b3261e;border-radius:12px;font:16px/1.45 sans-serif;color:#222;background:#fff"><b>Something went wrong</b><br>'+m+'<br><br>Try updating Chrome and Android System WebView, then reload. If it still fails, send this message to the app owner.</div>';}
+},true);
+</script>
 <script src="lib/pdf.min.js"></script>
 <script src="parser.js"></script>
 <script src="app.js"></script>
