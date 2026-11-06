@@ -18,9 +18,9 @@ and everything you open stays on a **bookshelf** so you can switch between docum
 ## Put it on GitHub Pages (about 5 minutes, no coding)
 
 1. Sign in at <https://github.com> and click **New repository**. Name it e.g. `tm-project-viewer`, keep it **Public**, click **Create repository**.
-2. On the new repo page click **uploading an existing file**. Drag in **everything inside this folder**
-   (`index.html`, `app.js`, `parser.js`, `styles.css`, `sw.js`, `manifest.webmanifest`, the `icons` and `lib` folders, `README.md`, `LICENSE`).
-   Make sure the `icons` and `lib` folders upload with their files. Click **Commit changes**.
+2. On the new repo page click **uploading an existing file**. Open this folder on your computer, press **Ctrl+A** (select all) and drag
+   **all the files** in. There are no sub-folders, so every file must appear in the upload list
+   (the app files, `pdf.min.js`, `pdf.worker.min.js` and the `.png` icons). Click **Commit changes**.
 3. Go to **Settings → Pages**. Under *Build and deployment* choose **Deploy from a branch**, branch **main**, folder **/ (root)**, then **Save**.
 4. After a minute or two the site is live at `https://YOUR-USERNAME.github.io/tm-project-viewer/` (shown at the top of the Pages screen).
 
@@ -52,7 +52,7 @@ Each browser on each phone has its own bookshelf. Clearing the browser's site da
 
 ## How it works
 
-`parser.js` uses [PDF.js](https://mozilla.github.io/pdf.js/) (bundled in `lib/`, no CDN) to read each page's text
+`parser.js` uses [PDF.js](https://mozilla.github.io/pdf.js/) (bundled, no CDN) to read each page's text
 with its position and font. It drops page numbers and repeated headers, reads two-column pages in the right order,
 detects headings by font size/weight, joins wrapped lines into paragraphs and bullets, places the PDF's form fields
 and checkboxes where they appear, and splits the document into sections at the main headings.
@@ -72,4 +72,4 @@ python3 -m http.server 8000     # then open http://localhost:8000
 
 ## Licence
 
-MIT for this app (see `LICENSE`). PDF.js is Apache-2.0 (`lib/PDFJS-LICENSE.txt`).
+MIT for this app (see `LICENSE`). PDF.js is Apache-2.0 (`PDFJS-LICENSE.txt`).

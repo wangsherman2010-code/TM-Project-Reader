@@ -431,8 +431,20 @@
   window.addEventListener('resize', autosize);
 
   /* ---------- start ---------- */
-  if (typeof pdfjsLib === 'undefined') { $('#view').innerHTML = '<div class="card"><h3>The PDF engine did not load</h3><p>Check your internet connection and reload. If it keeps happening, update Chrome and Android System WebView.</p></div>'; return; }
-  pdfjsLib.GlobalWorkerOptions.workerSrc = 'lib/pdf.worker.min.js';
+  if (typeof pdfjsLib === 'undefined') {
+    $('#view').innerHTML = '<div class="card"><h3>The PDF engine did not load</h3><p>Please send a screenshot of this box to the app owner.</p>' +
+      '<pre id="dg" style="white-space:pre-wrap;word-break:break-word;font-size:.72rem;line-height:1.35;background:var(--soft);border-radius:10px;padding:10px">Checking\u2026</pre></div>';
+    var lines = ['App v3', navigator.userAgent, 'Errors: ' + ((window.__errs || []).join(' | ') || 'none')];
+    var files = ['pdf.min.js', 'pdf.worker.min.js', 'parser.js'];
+    var shownDg = function () { var d = $('#dg'); if (d) d.textContent = lines.join('\n'); };
+    shownDg();
+    files.forEach(function (f) {
+      fetch(f, { cache: 'no-store' }).then(function (r) { return r.text().then(function (t) { lines.push(f + ': HTTP ' + r.status + ', ' + t.length + ' chars, starts: ' + t.slice(0, 40).replace(/\s+/g, ' ')); shownDg(); }); })
+        .catch(function (e) { lines.push(f + ': fetch failed (' + e + ')'); shownDg(); });
+    });
+    return;
+  }
+  pdfjsLib.GlobalWorkerOptions.workerSrc = 'pdf.worker.min.js';
   applySettings();
   loadShelf().then(function () {
     var s = history.state;

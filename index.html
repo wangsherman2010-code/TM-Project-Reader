@@ -6,8 +6,8 @@
 <meta name="theme-color" content="#004165">
 <meta name="description" content="Read Toastmasters project PDFs comfortably on your phone. Works offline; your files never leave your device.">
 <link rel="manifest" href="manifest.webmanifest">
-<link rel="icon" type="image/png" href="icons/favicon.png">
-<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="TM Viewer">
@@ -27,11 +27,12 @@ window.addEventListener('error',function(e){
   var t=e.target,m;
   if(t&&t.src){m='Could not load '+t.src.split('/').slice(-2).join('/');}
   else{m=(e.message||'Unknown error')+' ('+String(e.filename||'').split('/').pop()+':'+(e.lineno||'?')+')';}
+  (window.__errs=window.__errs||[]).push(m);
   var v=document.getElementById('view');
   if(v){v.innerHTML='<div style="padding:16px;border:2px solid #b3261e;border-radius:12px;font:16px/1.45 sans-serif;color:#222;background:#fff"><b>Something went wrong</b><br>'+m+'<br><br>Try updating Chrome and Android System WebView, then reload. If it still fails, send this message to the app owner.</div>';}
 },true);
 </script>
-<script src="lib/pdf.min.js"></script>
+<script src="pdf.min.js"></script>
 <script src="parser.js"></script>
 <script src="app.js"></script>
 </body>

@@ -1,11 +1,11 @@
 /* TM Project Viewer service worker: caches the app so it opens offline.
  * Bump VERSION when you change any app file so phones pick up the update. */
-const VERSION = 'tmv-v2';
+const VERSION = 'tmv-v3';
 const ASSETS = [
   './', 'index.html', 'styles.css', 'app.js', 'parser.js', 'manifest.webmanifest',
-  'lib/pdf.min.js', 'lib/pdf.worker.min.js',
-  'icons/icon-192.png', 'icons/icon-512.png', 'icons/icon-maskable-512.png',
-  'icons/apple-touch-icon.png', 'icons/favicon.png'
+  'pdf.min.js', 'pdf.worker.min.js',
+  'icon-192.png', 'icon-512.png', 'icon-maskable-512.png',
+  'apple-touch-icon.png', 'favicon.png'
 ];
 
 self.addEventListener('install', (e) => {
